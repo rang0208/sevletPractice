@@ -52,4 +52,18 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
+
+    @Override
+    public int getAllUserNum() {
+        return userDao.getAllUserNum();
+    }
+
+    @Override
+    public List<User> getUserListByPage(int pageNumber) {
+        //每页的大小
+        int pageSize=5;
+        //获取当前页码的第一条索引位置
+        int pageIndex=(pageNumber-1)*pageSize;
+        return userDao.getUserListByPage(pageIndex,pageSize);
+    }
 }

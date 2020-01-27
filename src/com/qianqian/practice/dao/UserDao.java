@@ -41,4 +41,17 @@ public interface UserDao {
      * @return
      */
     List<User> getAllUsers();
+
+    /**
+     * 获取所有用户数量
+     */
+    int getAllUserNum();
+
+    /**
+     * 根据页码和页大小获取对应的用户数据
+     * @param pageIndex 页码
+     * @param pageSize 页大小
+     * @return
+     */
+    List<User> getUserListByPage(int pageIndex,int pageSize);
 }

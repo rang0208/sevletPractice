@@ -41,4 +41,17 @@ public interface UserService {
      * @return
      */
     List<User> getAllUsers();
+
+    /**
+     * 获取所有用户数量
+     */
+    int getAllUserNum();
+
+    /**
+     * 根据页码和页大小获取对应的用户数据
+     *
+     * @param pageNumber 页码
+     * @return
+     */
+    List<User> getUserListByPage(int pageNumber);
 }

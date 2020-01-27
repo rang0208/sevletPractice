@@ -6,6 +6,7 @@ import com.qianqian.practice.utils.DBUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -83,6 +84,29 @@ public class UserDaoImpl implements UserDao {
         try {
             List<User> userList = queryRunner.query("select*from tb_userlogininfo;", new BeanListHandler<>(User.class));
             return userList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public int getAllUserNum() {
+        try {
+            //默认返回类型为long
+            long l=queryRunner.query("select count(*) from tb_userlogininfo",new ScalarHandler<>());
+            int i= (int) l;
+            return i;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public List<User> getUserListByPage(int pageIndex, int pageSize) {
+        try {
+            return queryRunner.query("select*from tb_userlogininfo limit ?,?",new BeanListHandler<>(User.class),pageIndex,pageSize);
         } catch (SQLException e) {
             e.printStackTrace();
         }
