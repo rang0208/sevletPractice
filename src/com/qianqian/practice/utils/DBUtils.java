@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- * 工具类
+ * 有关数据库的工具类
  */
 public class DBUtils {
     private static DruidDataSource druidDataSource = null;

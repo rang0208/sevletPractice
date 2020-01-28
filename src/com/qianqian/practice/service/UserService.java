@@ -16,6 +16,11 @@ public interface UserService {
     boolean loginCheck(String userName, String userPassword);
 
     /**
+     * 根据用户名和密码获取用户唯一ID
+     */
+    String getUserIdByNameAndPassWord(String userName, String userPassword);
+
+    /**
      * 插入用户
      */
     boolean insertUser(String userId, String userName, String userPassword, String userGender);

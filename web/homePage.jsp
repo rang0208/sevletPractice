@@ -11,9 +11,11 @@
     <title>主页</title>
 </head>
 <body>
-<h3>${message}</h3>
-<a href="${pageContext.request.contextPath}/allUserServlet">获取所有用户名单</a><br>
-<a href="${pageContext.request.contextPath}/allUserServlet">获取我的文件目录</a><br>
-<a href="${pageContext.request.contextPath}/exitLoginServlet">注销登录 </a><br>
+<div style="text-align:center;margin-top: 10%">
+    <h3>${message}</h3>
+    <a href="${pageContext.request.contextPath}/allUserServlet">获取所有用户名单</a><br><br>
+    <a href="${pageContext.request.contextPath}/getAllUserFiles">我的文件</a><br><br>
+    <a href="${pageContext.request.contextPath}/exitLoginServlet">注销登录 </a><br>
+</div>
 </body>
 </html>

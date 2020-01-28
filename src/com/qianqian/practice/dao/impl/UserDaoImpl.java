@@ -39,6 +39,17 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public String getUserIdByNameAndPassWord(String userName, String userPassword) {
+        try {
+            User user = queryRunner.query("select*from tb_userlogininfo where userName=? and userPassword=?", new BeanHandler<>(User.class), userName, userPassword);
+            return user.getUserId();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public int insertUser(User user) {
         try {
             return queryRunner.update("insert into tb_userlogininfo (userId,userName,userPassword,userGender) values(?,?,?,?)", user.getUserId(), user.getUserName(), user.getUserPassword(), user.getUserGender());

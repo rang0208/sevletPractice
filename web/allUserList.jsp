@@ -12,7 +12,7 @@
         <th>NAME</th>
         <th>GENDER</th>
     </tr>
-    <c:set var="i" value="${(pageNumber-1)*5+1}"/>
+    <c:set var="i" value="${(pageNumber-1)*pageSize+1}"/>
     <c:forEach items="${userList}" var="user">
         <tr>
             <td>${i}</td>
@@ -28,6 +28,7 @@
     <a href="${pageContext.request.contextPath}/allUserServlet?pageNumber=${pageNumber-1}">上一页</a>
     <a href="${pageContext.request.contextPath}/allUserServlet?pageNumber=${pageNumber+1}">下一页</a>
     <a href="${pageContext.request.contextPath}/allUserServlet?pageNumber=${totalPages}">尾页</a>
+    <a href="${pageContext.request.contextPath}/homePage.jsp">返回主页</a>
 </div>
 </body>
 </html>

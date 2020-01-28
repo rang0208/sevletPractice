@@ -22,7 +22,9 @@ public class LoginServlet extends HttpServlet {
             String userName = request.getParameter("userName");
             String userPassword = request.getParameter("userPassword");
             if (userService.loginCheck(userName, userPassword)) {
-                Cookie cookie = new Cookie("userInfo", userName + "##" + userPassword);
+                //获取该用户的唯一id并存入Cookie里
+                String userId = userService.getUserIdByNameAndPassWord(userName, userPassword);
+                Cookie cookie = new Cookie("userInfo", userName + "##" + userPassword + "##" + userId);
                 cookie.setPath("/");
                 //设置有效时间为三个小时
                 cookie.setMaxAge(60 * 60 * 3);
