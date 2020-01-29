@@ -2,11 +2,10 @@ package com.qianqian.practice.test;
 
 import com.qianqian.practice.dao.FileDao;
 import com.qianqian.practice.dao.impl.FileDaoImpl;
-import com.qianqian.practice.entity.FileInfo;
-import com.qianqian.practice.utils.FileUtils;
 
-import java.util.List;
-
+/**
+ * 用于对项目模块进行测试
+ */
 public class Test {
 
 
@@ -15,6 +14,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        System.out.println("千锋教育");
+        FileDao fileDao = new FileDaoImpl();
+        System.out.println(fileDao.getFileStorageName("d3929c18-7558-4bdc-9759-a969af5e27a2"));
     }
 }

@@ -2,6 +2,7 @@ package com.qianqian.practice.entity;
 
 public class FileInfo {
     private String fileId;
+    private String fileName;
     private String fileUploadDate;
     private int fileSize;
     //文件所属用户id
@@ -10,21 +11,12 @@ public class FileInfo {
     public FileInfo() {
     }
 
-    public FileInfo(String fileId, String fileUploadDate, int fileSize, String userId) {
+    public FileInfo(String fileId, String fileName, String fileUploadDate, int fileSize, String userId) {
         this.fileId = fileId;
+        this.fileName = fileName;
         this.fileUploadDate = fileUploadDate;
         this.fileSize = fileSize;
         this.userId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return "FileInfo{" +
-                "fileId='" + fileId + '\'' +
-                ", fileUploadDate='" + fileUploadDate + '\'' +
-                ", fileSize=" + fileSize +
-                ", userId='" + userId + '\'' +
-                '}';
     }
 
     public String getFileId() {
@@ -33,6 +25,14 @@ public class FileInfo {
 
     public void setFileId(String fileId) {
         this.fileId = fileId;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public String getFileUploadDate() {
@@ -57,5 +57,16 @@ public class FileInfo {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "FileInfo{" +
+                "fileId='" + fileId + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", fileUploadDate='" + fileUploadDate + '\'' +
+                ", fileSize=" + fileSize +
+                ", userId='" + userId + '\'' +
+                '}';
     }
 }

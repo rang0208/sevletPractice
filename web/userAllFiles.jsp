@@ -12,17 +12,21 @@
     <title>用户文件</title>
 </head>
 <body>
-<table align="center" style="text-align: center;width: 20%;border: 1px darkorange;margin-top: 10%">
+<table border="1" width="30%" bordercolor="black" cellspacing="0" align="center" style="margin-top: 10%">
     <tr>
         <th>文件名</th>
         <th>上传日期</th>
         <th>文件大小</th>
+        <th>操作</th>
     </tr>
-    <c:forEach items="${fileList}" var="file">
+    <c:forEach items="${fileInfoList}" var="file">
         <tr>
             <td>${file.fileName}</td>
-            <td>${file.fileUplodadDate}</td>
+            <td>${file.fileUploadDate}</td>
             <td>${file.fileSize}</td>
+            <td><a href="${pageContext.request.contextPath}/downLoadService?fileId=${file.fileId}">下载</a>
+                <a href="${pageContext.request.contextPath}/deleteFileServlet?fileId=${file.fileId}">删除</a>
+            </td>
         </tr>
     </c:forEach>
 </table>
@@ -37,7 +41,8 @@
             </tr>
             <tr>
                 <td><input type="submit" value="上传"/></td>
-                <td align="center"><input type="reset" value="重置"/></td>
+                <td><input type="reset" value="重置"/><a href="${pageContext.request.contextPath}/homePage.jsp">返回主页</a>
+                </td>
             </tr>
         </table>
     </form>
